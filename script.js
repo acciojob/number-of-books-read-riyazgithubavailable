@@ -16,8 +16,18 @@ const library = [
   },
 ];
 
-const numberOfBooksRead = () => {
+const numberOfBooksRead = ( library) => {
   // write your code here
+	    if (!library || !library.books || !Array.isArray(library.books)) {
+        console.error("Invalid library object");
+        return 0;
+    }
+
+    // Filter the books array based on readingStatus and return the count
+    const readBooks = library.books.filter(book => book.readingStatus === true);
+    return readBooks.length;
+
+	
 };
 
 // Do not change the code below
